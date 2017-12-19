@@ -14,49 +14,59 @@ class BadgesSelectorViewModel {
         selectableTap: RxCocoa.Signal<Badge>
     )
 
-    let badgeDidSelect: RxCocoa.Signal<Badge>
-    let badgeDidDeselect: RxCocoa.Signal<Badge>
-    let canComplete: RxCocoa.Driver<Bool>
-    let selectedBadges: RxCocoa.Driver<[Badge]>
-    let selectableBadges: RxCocoa.Driver<[Badge]>
+    // There are Child ViewModels.
+    let selectedViewModel: SelectedBadgesViewModel
+    let selectableViewModel: SelectableBadgesViewModel
+    let completionViewModel: BadgeSelectorCompletionViewModel
 
     var currentSelectedBadges: [Badge] {
         return self.selectedBadgesRelay.value
     }
 
-    private let badgeDidSelectRelay: RxCocoa.PublishRelay<Badge>
-    private let badgeDidDeselectRelay: RxCocoa.PublishRelay<Badge>
+    private let allBadgesRelay: RxCocoa.BehaviorRelay<[Badge]>
     private let selectedBadgesRelay: RxCocoa.BehaviorRelay<[Badge]>
-    private let dependency: Dependency
+    private let selectableBadgesRelay: RxCocoa.BehaviorRelay<[Badge]>
     private let disposeBag = RxSwift.DisposeBag()
 
 
     init(input: Input, dependency: Dependency) {
-        self.dependency = dependency
-
-        let badgeDidSelectRelay = RxCocoa.PublishRelay<Badge>()
-        self.badgeDidSelectRelay = badgeDidSelectRelay
-        self.badgeDidSelect = badgeDidSelectRelay.asSignal()
-
-        let badgeDidDeselectRelay = RxCocoa.PublishRelay<Badge>()
-        self.badgeDidDeselectRelay = badgeDidDeselectRelay
-        self.badgeDidDeselect = badgeDidDeselectRelay.asSignal()
-
+        let allBadgesRelay = RxCocoa.BehaviorRelay<[Badge]>(value: [])
+        self.allBadgesRelay = allBadgesRelay
         let selectedBadgesRelay = RxCocoa.BehaviorRelay<[Badge]>(value: [])
         self.selectedBadgesRelay = selectedBadgesRelay
-        let selectedBadges = selectedBadgesRelay.asDriver()
-        self.selectedBadges = selectedBadges
+        let selectableBadgesRelay = RxCocoa.BehaviorRelay<[Badge]>(value: [])
+        self.selectableBadgesRelay = selectableBadgesRelay
 
-        let allBadgesRelay = RxCocoa.BehaviorRelay<[Badge]>(value: [])
-        let allBadges = allBadgesRelay.asDriver()
+        self.selectedViewModel = SelectedBadgesViewModel(
+            input: input.selectedTap,
+            dependency: selectedBadgesRelay
+        )
+
+        self.selectableViewModel = SelectableBadgesViewModel(
+            input: input.selectableTap,
+            dependency: (
+                selectedBadgesRelay: selectedBadgesRelay,
+                selectableBadgesRelay: selectableBadgesRelay
+            )
+        )
+
+        self.completionViewModel = BadgeSelectorCompletionViewModel(
+            input: input.doneTap,
+            dependency: (
+                selectedBadgesRelay: selectedBadgesRelay,
+                wireframe: dependency.wireframe
+            )
+        )
 
         dependency.repository
             .get(by: ())
             .subscribe(
-                onSuccess: { result in
+                onSuccess: { [weak self] result in
+                    guard let `self` = self else { return }
+
                     switch result {
                     case let .success(badges):
-                        allBadgesRelay.accept(badges)
+                        self.allBadgesRelay.accept(badges)
                     case .failure:
                         break
                     }
@@ -65,10 +75,10 @@ class BadgesSelectorViewModel {
             )
             .disposed(by: self.disposeBag)
 
-        self.selectableBadges = RxCocoa.Driver
+        RxCocoa.Driver
             .combineLatest(
-                allBadges,
-                selectedBadges,
+                allBadgesRelay.asDriver(),
+                selectedBadgesRelay.asDriver(),
                 resultSelector: { ($0, $1) }
             )
             .map { tuple -> [Badge] in
@@ -78,61 +88,8 @@ class BadgesSelectorViewModel {
                     without: Set(selectedBadges)
                 )
             }
-
-        self.canComplete = selectedBadges
-            .map { selection in !selection.isEmpty }
-            .asDriver()
-
-        input.doneTap
-            .emit(onNext: { [weak self] _ in
-                guard let `self` = self else { return }
-
-                self.dependency.wireframe.goToResultScreen(
-                    with: selectedBadgesRelay.value
-                )
-            })
+            .drive(selectableBadgesRelay)
             .disposed(by: self.disposeBag)
-
-        input.selectedTap
-            .emit(onNext: { [weak self] badge in
-                guard let `self` = self else { return }
-
-                self.deselect(badge: badge)
-            })
-            .disposed(by: self.disposeBag)
-
-        input.selectableTap
-            .emit(onNext: { [weak self] badge in
-                guard let `self` = self else { return }
-
-                self.select(badge: badge)
-            })
-            .disposed(by: self.disposeBag)
-    }
-
-
-    private func select(badge: Badge) {
-        let currentSelection = self.selectedBadgesRelay.value
-        guard !currentSelection.contains(badge) else { return }
-
-        var newSelection = currentSelection
-        newSelection.append(badge)
-
-        self.selectedBadgesRelay.accept(newSelection)
-        self.badgeDidSelectRelay.accept(badge)
-    }
-
-
-    private func deselect(badge: Badge) {
-        let currentSelection = self.selectedBadgesRelay.value
-        var newSelection = currentSelection
-
-        guard let index = newSelection.index(of: badge) else { return }
-
-        newSelection.remove(at: index)
-
-        self.selectedBadgesRelay.accept(newSelection)
-        self.badgeDidDeselectRelay.accept(badge)
     }
 
 

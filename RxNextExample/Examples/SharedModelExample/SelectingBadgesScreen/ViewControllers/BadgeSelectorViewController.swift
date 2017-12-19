@@ -75,12 +75,12 @@ class BadgeSelectorViewController: UIViewController {
             }
         )
 
-        viewModel.selectedBadges
+        viewModel.selectedViewModel.selectedBadges
             .map { badges in [RxDataSources.AnimatableSectionModel(model: "Selected", items: badges)] }
             .drive(self.rootView.selectedCollectionOutlet.rx.items(dataSource: selectedDataSource))
             .disposed(by: self.disposeBag)
 
-        viewModel.badgeDidSelect
+        viewModel.selectableViewModel.badgeDidSelect
             .emit(onNext: { [weak self] badge in
                 guard let `self` = self else { return }
 
@@ -99,12 +99,13 @@ class BadgeSelectorViewController: UIViewController {
             }
         )
 
-        viewModel.selectableBadges
+        viewModel.selectableViewModel.selectableBadges
             .map { badges in [RxDataSources.AnimatableSectionModel(model: "Selectable", items: badges)] }
             .drive(self.rootView.selectableCollectionOutlet.rx.items(dataSource: selectableDataSource))
             .disposed(by: self.disposeBag)
 
-        viewModel.canComplete
+        viewModel.completionViewModel
+            .canComplete
             .drive(self.doneButton.rx.isEnabled)
             .disposed(by: self.disposeBag)
     }
