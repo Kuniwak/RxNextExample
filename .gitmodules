@@ -1,0 +1,6 @@
+[submodule "Carthage/Checkouts/RxDataSources"]
+	path = Carthage/Checkouts/RxDataSources
+	url = https://github.com/RxSwiftCommunity/RxDataSources.git
+[submodule "Carthage/Checkouts/RxSwift"]
+	path = Carthage/Checkouts/RxSwift
+	url = https://github.com/ReactiveX/RxSwift.git

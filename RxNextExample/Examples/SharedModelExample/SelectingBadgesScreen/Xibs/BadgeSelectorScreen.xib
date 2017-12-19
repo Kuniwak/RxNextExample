@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BadgeSelectorRootView" customModule="RxNextExample" customModuleProvider="target">
+            <connections>
+                <outlet property="selectableCollectionOutlet" destination="2Iw-bp-hgw" id="BqI-xf-Grx"/>
+                <outlet property="selectedCollectionOutlet" destination="QIh-e0-UaN" id="iwV-SA-fsO"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="2Iw-bp-hgw">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bfr-1N-nLp">
+                        <size key="itemSize" width="80" height="80"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L5G-fF-vwQ" customClass="BadgesSelectorRootViewSelectedAreaView" customModule="RxNextExample" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="20" width="375" height="100"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="BqL-P5-Sj2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="extraLight"/>
+                </visualEffectView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="QIh-e0-UaN">
+                    <rect key="frame" x="0.0" y="20" width="375" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="TcY-ai-3rN"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="78U-Oz-FmL">
+                        <size key="itemSize" width="80" height="80"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="2Iw-bp-hgw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="20w-zv-DHc"/>
+                <constraint firstItem="2Iw-bp-hgw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="295-ou-Jzd"/>
+                <constraint firstItem="QIh-e0-UaN" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="3W5-r8-LKD"/>
+                <constraint firstItem="QIh-e0-UaN" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="MUT-cf-Mop"/>
+                <constraint firstItem="L5G-fF-vwQ" firstAttribute="top" secondItem="QIh-e0-UaN" secondAttribute="top" id="O55-Op-bES"/>
+                <constraint firstAttribute="trailing" secondItem="2Iw-bp-hgw" secondAttribute="trailing" id="Yan-Vr-o4u"/>
+                <constraint firstItem="L5G-fF-vwQ" firstAttribute="bottom" secondItem="QIh-e0-UaN" secondAttribute="bottom" id="eeq-Au-reT"/>
+                <constraint firstItem="QIh-e0-UaN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ff9-Df-niW"/>
+                <constraint firstItem="L5G-fF-vwQ" firstAttribute="trailing" secondItem="QIh-e0-UaN" secondAttribute="trailing" id="vUn-uw-Jkh"/>
+                <constraint firstAttribute="bottom" secondItem="2Iw-bp-hgw" secondAttribute="bottom" id="x2D-KQ-EMT"/>
+                <constraint firstItem="L5G-fF-vwQ" firstAttribute="leading" secondItem="QIh-e0-UaN" secondAttribute="leading" id="xAR-yp-WYy"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>
