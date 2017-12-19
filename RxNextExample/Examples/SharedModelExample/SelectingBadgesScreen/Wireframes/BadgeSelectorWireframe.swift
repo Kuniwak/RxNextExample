@@ -3,7 +3,7 @@ import UIKit
 
 
 protocol BadgeSelectorWireframe {
-    func goToResultScreen(with selectedBadgesModel: SelectedBadgesModel)
+    func goToResultScreen(with selectedBadges: [Badge])
 }
 
 
@@ -17,10 +17,10 @@ class DefaultBadgeSelectorWireframe: BadgeSelectorWireframe {
     }
 
 
-    func goToResultScreen(with selectedBadgesModel: SelectedBadgesModel) {
+    func goToResultScreen(with selectedBadges: [Badge]) {
         let navigationController = UINavigationController(
             rootViewController: SelectedBadgesViewController(
-                dependency: selectedBadgesModel
+                dependency: selectedBadges
             )
         )
 

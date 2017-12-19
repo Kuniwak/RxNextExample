@@ -30,17 +30,8 @@ class DefaultCatalogWireframe: CatalogWireframe {
 
 
     func goToSharedModelExampleScreen() {
-        let allBadgesModel = DefaultAllBadgesModel(gettingBadgesVia: BadgesDummyRepository())
-        let selectedBadgesModel = DefaultSelectedBadgesModel(selected: [])
-
         let viewController = BadgeSelectorViewController(
-            dependency: (
-                selectedBadgesModel: selectedBadgesModel,
-                selectableBadgesModel: DefaultSelectableBadgesModel(dependency: (
-                    allModel: allBadgesModel,
-                    selectedModel: selectedBadgesModel
-                ))
-            )
+            dependency: BadgesDummyRepository()
         )
 
         self.navigationController?.pushViewController(viewController, animated: true)

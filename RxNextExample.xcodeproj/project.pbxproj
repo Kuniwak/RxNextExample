@@ -13,17 +13,14 @@
 		2475E209906734D7996A6859 /* QuizzesRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EA65C30A5F9454318E52 /* QuizzesRootView.swift */; };
 		2475E26144C1ECC88BD81476 /* AnswerEntriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E039FA7D16537856DDFD /* AnswerEntriesModel.swift */; };
 		2475E2BBB2C041880A2424F8 /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475ECDFEF1C57AE3D0BC3B6 /* CatalogViewModel.swift */; };
-		2475E30D6C78380ECA4E10FD /* BadgeSelectorCompletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E2C1107EBAAD937485B4 /* BadgeSelectorCompletionViewModel.swift */; };
 		2475E3C00802EC45C68A660B /* ExampleScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EEEB9944D294D8DD63F8 /* ExampleScreenCell.swift */; };
 		2475E407C01F514B2AA768A1 /* QuizEntriesConstantRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EA5A2300E1EBCA454F9F /* QuizEntriesConstantRepository.swift */; };
 		2475E4DB215AF09D13F9B473 /* BadgesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EA5813EB391AF0AED436 /* BadgesRepository.swift */; };
 		2475E4F9EBF85E418B85D734 /* SelectedBadgesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E33A1515E2135B3FBACA /* SelectedBadgesScreenViewModel.swift */; };
 		2475E50A7CFEBB77A436B65B /* QuizEntriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E6EE970F30BE2EDA6780 /* QuizEntriesRepository.swift */; };
-		2475E52E29C2F86876E3AEAF /* SelectedBadgesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EA5439CF6DA282C88D3F /* SelectedBadgesModel.swift */; };
 		2475E5651F21212D8AF16581 /* QuizEntriesDummyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E2C85F65E1C0B1095CAA /* QuizEntriesDummyRepository.swift */; };
 		2475E586949D07E4B1B80FC2 /* QuizCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E0F2A0D494E6F1D3878C /* QuizCell.swift */; };
 		2475E65A4592222649D2DB03 /* QuizIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E50C642EB9A80004B7B4 /* QuizIndexModel.swift */; };
-		2475E6D5D138FBB7467CCBBE /* AllBadgesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E26D762789A41F7381C8 /* AllBadgesModel.swift */; };
 		2475E748DEFA2B9EEA0ADC5B /* SelectedBadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EF7FE9919060FAD1DB0F /* SelectedBadgesViewController.swift */; };
 		2475E753BC511A44A923A701 /* CatalogWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EB35F6C09F99FDC6FA4C /* CatalogWireframe.swift */; };
 		2475E77E91BA56D82E197073 /* BadgeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EC16407CD80F3C5BD072 /* BadgeSelectorViewController.swift */; };
@@ -31,7 +28,6 @@
 		2475E88830751472E5755A2C /* ReadOnlySelectedBadgesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E780B255372FFB809673 /* ReadOnlySelectedBadgesViewModel.swift */; };
 		2475E9646C52D664E953AA24 /* PresentedViewControllerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E69C065B5C74DF5A5EAC /* PresentedViewControllerWireframe.swift */; };
 		2475E9745ED9B2A96B7AFEBB /* FilledLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E8BEC361B9ECE15D9691 /* FilledLayout.swift */; };
-		2475E997324E6D0DA24970EF /* SelectableBadgesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E06C191761DE087B77DB /* SelectableBadgesModel.swift */; };
 		2475E9D2D367CAB555230F8D /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EF40B84C7646E77A1544 /* Quiz.swift */; };
 		2475E9F20CE2662C547C545D /* EntityModelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E330DE18313B1E52885B /* EntityModelRepository.swift */; };
 		2475E9FACB90260C2966DEB2 /* BadgeSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E5B84F65615616BB7D28 /* BadgeSelectorViewModel.swift */; };
@@ -42,12 +38,10 @@
 		2475EB276A1EE5AE1902AAEE /* SelectedBadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EC06DF586F923ED349C6 /* SelectedBadgeCell.swift */; };
 		2475EB4EA3A3057D065BE172 /* BadgesDummyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EBFF111B9E3EE7B6BF5E /* BadgesDummyRepository.swift */; };
 		2475EB8973B0F90253C498C5 /* AllQuizEntriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E22EB0923F8110892C5D /* AllQuizEntriesModel.swift */; };
-		2475EB9E804489F8850F398F /* SelectableBadgesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E29188F41113DBFC9C8B /* SelectableBadgesViewModel.swift */; };
 		2475EBAA1FAB75647AFB544E /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E4BEA4BA54B9AE4E1426 /* StateMachine.swift */; };
 		2475EC18D355C33757BE8495 /* QuizEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E3EB20A2087DE1585C20 /* QuizEntry.swift */; };
 		2475EC694FE8D439410A3D65 /* BadgeSelectorWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E7448E7669FF244E65A7 /* BadgeSelectorWireframe.swift */; };
 		2475ECC977C636F7FA4EBDB2 /* SelectableBadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EBEC3E5D2696EDC50CC3 /* SelectableBadgeCell.swift */; };
-		2475ECFF2EA811626BE1CD86 /* SelectedBadgesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E198073524402DD21AB1 /* SelectedBadgesViewModel.swift */; };
 		2475ED07A1A02A40BB2D37F9 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E896740B188A82019D70 /* Badge.swift */; };
 		2475ED142FA3FF2EB09309C6 /* QuizzesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E8E6FA20567705E947B0 /* QuizzesViewController.swift */; };
 		2475EE1135765509F83486BF /* EntityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EDCC44C2F6EB40C05047 /* EntityModel.swift */; };
@@ -83,15 +77,10 @@
 
 /* Begin PBXFileReference section */
 		2475E039FA7D16537856DDFD /* AnswerEntriesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerEntriesModel.swift; sourceTree = "<group>"; };
-		2475E06C191761DE087B77DB /* SelectableBadgesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableBadgesModel.swift; sourceTree = "<group>"; };
 		2475E0F2A0D494E6F1D3878C /* QuizCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizCell.swift; sourceTree = "<group>"; };
 		2475E0FBBA57290966D37E6F /* QuizzesScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizzesScreen.xib; sourceTree = "<group>"; };
 		2475E1545E5AB0690C66441C /* ExampleScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleScreen.swift; sourceTree = "<group>"; };
-		2475E198073524402DD21AB1 /* SelectedBadgesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedBadgesViewModel.swift; sourceTree = "<group>"; };
 		2475E22EB0923F8110892C5D /* AllQuizEntriesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllQuizEntriesModel.swift; sourceTree = "<group>"; };
-		2475E26D762789A41F7381C8 /* AllBadgesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllBadgesModel.swift; sourceTree = "<group>"; };
-		2475E29188F41113DBFC9C8B /* SelectableBadgesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableBadgesViewModel.swift; sourceTree = "<group>"; };
-		2475E2C1107EBAAD937485B4 /* BadgeSelectorCompletionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeSelectorCompletionViewModel.swift; sourceTree = "<group>"; };
 		2475E2C85F65E1C0B1095CAA /* QuizEntriesDummyRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizEntriesDummyRepository.swift; sourceTree = "<group>"; };
 		2475E330DE18313B1E52885B /* EntityModelRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityModelRepository.swift; sourceTree = "<group>"; };
 		2475E33A1515E2135B3FBACA /* SelectedBadgesScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedBadgesScreenViewModel.swift; sourceTree = "<group>"; };
@@ -112,7 +101,6 @@
 		2475E8BEC361B9ECE15D9691 /* FilledLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilledLayout.swift; sourceTree = "<group>"; };
 		2475E8E6FA20567705E947B0 /* QuizzesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizzesViewController.swift; sourceTree = "<group>"; };
 		2475E90616FAB610AC4A55C4 /* BackButtonTitleHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonTitleHandle.swift; sourceTree = "<group>"; };
-		2475EA5439CF6DA282C88D3F /* SelectedBadgesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedBadgesModel.swift; sourceTree = "<group>"; };
 		2475EA5813EB391AF0AED436 /* BadgesRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesRepository.swift; sourceTree = "<group>"; };
 		2475EA5A2300E1EBCA454F9F /* QuizEntriesConstantRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizEntriesConstantRepository.swift; sourceTree = "<group>"; };
 		2475EA65C30A5F9454318E52 /* QuizzesRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizzesRootView.swift; sourceTree = "<group>"; };
@@ -190,10 +178,7 @@
 		2475E0638839958FA9A51D9E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				2475E2C1107EBAAD937485B4 /* BadgeSelectorCompletionViewModel.swift */,
 				2475E5B84F65615616BB7D28 /* BadgeSelectorViewModel.swift */,
-				2475E29188F41113DBFC9C8B /* SelectableBadgesViewModel.swift */,
-				2475E198073524402DD21AB1 /* SelectedBadgesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -350,15 +335,6 @@
 			path = Xibs;
 			sourceTree = "<group>";
 		};
-		2475E95967B1D4A768F9857C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				2475E26D762789A41F7381C8 /* AllBadgesModel.swift */,
-				2475E06C191761DE087B77DB /* SelectableBadgesModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		2475EA8259F9144AD2D4B62A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,7 +360,6 @@
 		2475EAF848875664D3C63199 /* SelectingBadgesScreen */ = {
 			isa = PBXGroup;
 			children = (
-				2475E95967B1D4A768F9857C /* Models */,
 				2475E6E444A991C5C0B6F800 /* Repositories */,
 				2475E3DAE9A8D47384B66332 /* ViewControllers */,
 				2475E0638839958FA9A51D9E /* ViewModels */,
@@ -478,17 +453,8 @@
 			isa = PBXGroup;
 			children = (
 				2475E68F82ADB53EF749288A /* Entities */,
-				2475EF24841F8FE40D7A0A51 /* Models */,
 			);
 			path = Shared;
-			sourceTree = "<group>";
-		};
-		2475EF24841F8FE40D7A0A51 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				2475EA5439CF6DA282C88D3F /* SelectedBadgesModel.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		2475EF58CDCD1176639F2BC2 /* Xibs */ = {
@@ -754,20 +720,14 @@
 				2475EB05637FB6DE3C195BF2 /* Result.swift in Sources */,
 				62EDEE221FE5346E009DFF38 /* SelectedBadgesRootView.swift in Sources */,
 				2475E9FACB90260C2966DEB2 /* BadgeSelectorViewModel.swift in Sources */,
-				2475EB9E804489F8850F398F /* SelectableBadgesViewModel.swift in Sources */,
-				2475ECFF2EA811626BE1CD86 /* SelectedBadgesViewModel.swift in Sources */,
 				2475E77E91BA56D82E197073 /* BadgeSelectorViewController.swift in Sources */,
 				2475EF1622FFC5184B503934 /* BadgeSelectorRootView.swift in Sources */,
 				2475ECC977C636F7FA4EBDB2 /* SelectableBadgeCell.swift in Sources */,
 				2475EB276A1EE5AE1902AAEE /* SelectedBadgeCell.swift in Sources */,
-				2475E6D5D138FBB7467CCBBE /* AllBadgesModel.swift in Sources */,
-				2475E997324E6D0DA24970EF /* SelectableBadgesModel.swift in Sources */,
 				2475E4DB215AF09D13F9B473 /* BadgesRepository.swift in Sources */,
 				2475E748DEFA2B9EEA0ADC5B /* SelectedBadgesViewController.swift in Sources */,
-				2475E52E29C2F86876E3AEAF /* SelectedBadgesModel.swift in Sources */,
 				2475ED07A1A02A40BB2D37F9 /* Badge.swift in Sources */,
 				2475E88830751472E5755A2C /* ReadOnlySelectedBadgesViewModel.swift in Sources */,
-				2475E30D6C78380ECA4E10FD /* BadgeSelectorCompletionViewModel.swift in Sources */,
 				2475EC694FE8D439410A3D65 /* BadgeSelectorWireframe.swift in Sources */,
 				2475E753BC511A44A923A701 /* CatalogWireframe.swift in Sources */,
 				2475E9646C52D664E953AA24 /* PresentedViewControllerWireframe.swift in Sources */,

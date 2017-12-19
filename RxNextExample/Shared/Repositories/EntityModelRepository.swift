@@ -13,14 +13,14 @@ protocol EntityModelRepository {
 
 
 extension EntityModelRepository {
-    func asAny() -> AnyEntityModelRepository<P, V, E> {
-        return AnyEntityModelRepository(self)
+    func asAny() -> AnyEntityRepository<P, V, E> {
+        return AnyEntityRepository(self)
     }
 }
 
 
 
-class AnyEntityModelRepository<Parameters, Entity, Reason>: EntityModelRepository {
+class AnyEntityRepository<Parameters, Entity, Reason>: EntityModelRepository {
     typealias V = Entity
     typealias E = Reason
     typealias P = Parameters

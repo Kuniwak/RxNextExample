@@ -11,7 +11,7 @@ class EntityModel<Parameters, Value, Reason> {
     let stateDidChange: RxCocoa.Driver<EntityModelState<P, V, E>>
 
     private let stateMachine: StateMachine<EntityModelState<P, V, E>>
-    private let repository: AnyEntityModelRepository<P, V, E>
+    private let repository: AnyEntityRepository<P, V, E>
     private let disposeBag = RxSwift.DisposeBag()
 
 

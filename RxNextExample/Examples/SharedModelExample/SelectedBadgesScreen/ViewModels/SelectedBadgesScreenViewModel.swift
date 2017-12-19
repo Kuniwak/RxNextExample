@@ -4,7 +4,7 @@ import RxCocoa
 
 class SelectedBadgesScreenViewModel {
     typealias Dependency = (
-        selectedModel: SelectedBadgesModel,
+        selectedBadges: [Badge],
         wireframe: PresentedViewControllerWireframe
     )
     let selectedViewModel: ReadOnlySelectedBadgesViewModel
@@ -19,7 +19,7 @@ class SelectedBadgesScreenViewModel {
     ) {
         self.dependency = dependency
         self.selectedViewModel = ReadOnlySelectedBadgesViewModel(
-            dependency: dependency.selectedModel
+            dependency: dependency.selectedBadges
         )
 
         backTap

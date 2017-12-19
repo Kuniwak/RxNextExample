@@ -6,19 +6,17 @@ import RxDataSources
 
 
 class BadgeSelectorViewController: UIViewController {
-    typealias Dependency = (
-        selectedBadgesModel: SelectedBadgesModel,
-        selectableBadgesModel: SelectableBadgesModel
-    )
-    private let dependency: Dependency
+    private let repository: AnyEntityRepository<Void, [Badge], Never>
     private let rootView: BadgeSelectorRootView
     private let doneButton: UIBarButtonItem
     private var viewModel: BadgesSelectorViewModel?
     private let disposeBag = RxSwift.DisposeBag()
 
 
-    init(dependency: Dependency) {
-        self.dependency = dependency
+    init<Repository: BadgesRepository>(
+        dependency repository: Repository
+    ) where Repository.P == Void, Repository.V == [Badge], Repository.E == Never {
+        self.repository = repository.asAny()
 
         self.rootView = BadgeSelectorRootView()
         self.doneButton = UIBarButtonItem(
@@ -61,8 +59,7 @@ class BadgeSelectorViewController: UIViewController {
                     .asSignal(onErrorSignalWith: .empty())
             ),
             dependency: (
-                selectedModel: self.dependency.selectedBadgesModel,
-                selectableModel: self.dependency.selectableBadgesModel,
+                repository: self.repository,
                 wireframe: DefaultBadgeSelectorWireframe(on: self)
             )
         )
@@ -78,12 +75,12 @@ class BadgeSelectorViewController: UIViewController {
             }
         )
 
-        viewModel.selectedViewModel.selectedBadges
+        viewModel.selectedBadges
             .map { badges in [RxDataSources.AnimatableSectionModel(model: "Selected", items: badges)] }
             .drive(self.rootView.selectedCollectionOutlet.rx.items(dataSource: selectedDataSource))
             .disposed(by: self.disposeBag)
 
-        viewModel.selectedViewModel.badgeDidSelect
+        viewModel.badgeDidSelect
             .emit(onNext: { [weak self] badge in
                 guard let `self` = self else { return }
 
@@ -102,20 +99,20 @@ class BadgeSelectorViewController: UIViewController {
             }
         )
 
-        viewModel.selectableViewModel.selectableBadges
+        viewModel.selectableBadges
             .map { badges in [RxDataSources.AnimatableSectionModel(model: "Selectable", items: badges)] }
             .drive(self.rootView.selectableCollectionOutlet.rx.items(dataSource: selectableDataSource))
             .disposed(by: self.disposeBag)
 
-        viewModel.completionViewModel
-            .canComplete
+        viewModel.canComplete
             .drive(self.doneButton.rx.isEnabled)
             .disposed(by: self.disposeBag)
     }
 
 
     private func scroll(to badge: Badge) {
-        guard let index = self.dependency.selectedBadgesModel.currentSelection.index(of: badge),
+        guard let viewModel = self.viewModel else { return }
+        guard let index = viewModel.currentSelectedBadges.index(of: badge),
               self.isAvailableIndex(index) else { return }
 
         self.rootView.selectedCollectionOutlet.scrollToItem(

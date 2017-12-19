@@ -6,7 +6,7 @@ import RxDataSources
 
 
 class SelectedBadgesViewController: UIViewController {
-    private let selectedBadgesModel: SelectedBadgesModel
+    private let selectedBadges: [Badge]
 
     private let rootView: SelectedBadgesRootView
     private let backButton: UIBarButtonItem
@@ -15,8 +15,8 @@ class SelectedBadgesViewController: UIViewController {
     private let disposeBag = RxSwift.DisposeBag()
 
 
-    init(dependency selectedBadgesModel: SelectedBadgesModel) {
-        self.selectedBadgesModel = selectedBadgesModel
+    init(dependency selectedBadges: [Badge]) {
+        self.selectedBadges = selectedBadges
 
         self.rootView = SelectedBadgesRootView()
         self.backButton = UIBarButtonItem(
@@ -51,7 +51,7 @@ class SelectedBadgesViewController: UIViewController {
                 .asSignal(onErrorSignalWith: .empty()),
 
             dependency: (
-                selectedModel: self.selectedBadgesModel,
+                selectedBadges: self.selectedBadges,
                 wireframe: DefaultPresentedViewControllerWireframe(willDismiss: self)
             )
         )
