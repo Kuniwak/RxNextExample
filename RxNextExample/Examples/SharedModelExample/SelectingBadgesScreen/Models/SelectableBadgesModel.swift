@@ -35,7 +35,7 @@ class DefaultSelectableBadgesModel: SelectableBadgesModel {
         // selected badges.
         let selectableBadgesRelay = RxCocoa.BehaviorRelay(
             value: DefaultSelectableBadgesModel.dropSelected(
-                from: dependency.allModel.currentState.value ?? [],
+                from: dependency.allModel.currentState.badges,
                 without: Set(dependency.selectedModel.currentSelection)
             )
         )
@@ -51,7 +51,7 @@ class DefaultSelectableBadgesModel: SelectableBadgesModel {
             .map { tuple -> [Badge] in
                 let (allBadgesModelState, selectedBadges) = tuple
                 return DefaultSelectableBadgesModel.dropSelected(
-                    from: allBadgesModelState.value ?? [],
+                    from: allBadgesModelState.badges,
                     without: Set(selectedBadges)
                 )
             }

@@ -2,8 +2,12 @@ import RxSwift
 
 
 
-protocol BadgesRepository: EntityModelRepository {
-    associatedtype V = [Badge]
-    associatedtype E = Never
-    associatedtype P = Void
+protocol BadgesRepository {
+    func get(count: Int) -> RxSwift.Single<Result<[Badge], BadgesRepositoryFailureReason>>
+}
+
+
+
+enum BadgesRepositoryFailureReason {
+    case unspecified(debugInfo: String)
 }

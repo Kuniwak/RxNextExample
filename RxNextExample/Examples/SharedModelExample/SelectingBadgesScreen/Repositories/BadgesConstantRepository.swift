@@ -11,7 +11,7 @@ class BadgesConstantRepository: BadgesRepository {
     }
 
 
-    func get(by parameters: Void) -> RxSwift.Single<Result<[Badge], Never>> {
+    func get(count: Int) -> Single<Result<[Badge], BadgesRepositoryFailureReason>> {
         return .just(.success(self.badges))
     }
 }

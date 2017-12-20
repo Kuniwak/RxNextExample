@@ -4,25 +4,17 @@ import RxSwift
 
 
 class BadgesDummyRepository: BadgesRepository {
-    private let constantRepository: BadgesConstantRepository
+    func get(count: Int) -> Single<Result<[Badge], BadgesRepositoryFailureReason>> {
+        let badges = (0..<count).map { (id: Int) -> Badge in
+            let color = BadgesDummyRepository.generateRandomBadgeColor()
+            return Badge(
+                id: id,
+                title: color.hex,
+                color: color.value
+            )
+        }
 
-
-    init() {
-        self.constantRepository = BadgesConstantRepository(
-            returning: (0..<100).map { id in
-                let color = BadgesDummyRepository.generateRandomBadgeColor()
-                return Badge(
-                    id: id,
-                    title: color.hex,
-                    color: color.value
-                )
-            }
-        )
-    }
-
-
-    func get(by parameters: Void) -> Single<Result<[Badge], Never>> {
-        return self.constantRepository.get(by: parameters)
+        return .just(.success(badges))
     }
 
 
